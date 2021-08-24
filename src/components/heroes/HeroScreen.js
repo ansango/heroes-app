@@ -1,17 +1,22 @@
-import { Redirect, useParams } from "react-router-dom";
+import { Redirect, useParams, useHistory } from "react-router-dom";
 import { getHeroesById } from "../../selectors/getHeroesById";
 export const HeroScreen = ({ history }) => {
   const { heroId } = useParams();
   const hero = getHeroesById(heroId)[0];
+  const router = useHistory();
 
   if (!hero) {
     return <Redirect to="/" />;
   }
-  const { id, superhero, publisher, alter_ego, first_appearance, characters } =
+  const { superhero, publisher, alter_ego, first_appearance, characters } =
     hero;
 
   const handleReturn = () => {
-    history.goBack();
+    if (router.length <= 2) {
+      router.push("/");
+      return;
+    }
+    router.goBack();
   };
 
   return (
