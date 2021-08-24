@@ -25,7 +25,7 @@ export const HeroScreen = () => {
     <div className="row mt-5">
       <div className="col-4">
         <img
-          className="w-100"
+          className="w-100 animate__animated animate__fadeInLeft"
           src={`../assets/heroes/${heroId}.jpg`}
           alt={superhero}
         />
