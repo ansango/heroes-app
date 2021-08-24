@@ -47,8 +47,20 @@ export const SearchScreen = () => {
         <div className="col-8">
           <h4>Results</h4>
           <hr />
+          {q === "" && (
+            <div className="alert alert-info animate__animated animate__fadeIn">
+              Search a Hero
+            </div>
+          )}
+          {q !== "" && heroesFiltered.length === 0 && (
+            <div className="alert alert-danger animate__animated animate__fadeIn">
+              Not Hero Found
+            </div>
+          )}
           {heroesFiltered.map((hero) => (
-            <Hero key={hero.id} {...hero} />
+            <div className="animate__animated animate__fadeIn" key={hero.id}>
+              <Hero {...hero} />
+            </div>
           ))}
         </div>
       </div>
