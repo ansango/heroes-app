@@ -11,11 +11,12 @@ const init = () => {
 const AuthProvider = ({ children }) => {
   const [user, dispatch] = useReducer(AuthReducer, {}, init);
   const login = ({ payload }) => dispatch({ type: types.login, payload });
+  const logout = ({ payload }) => dispatch({ type: types.logout, payload });
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
   return (
-    <AuthContext.Provider value={{ user, login }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

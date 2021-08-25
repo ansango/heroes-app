@@ -1,10 +1,16 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { useAuth } from "../../auth/AuthProvider";
 
 export const Navbar = () => {
+  const router = useHistory();
   const {
-    user: { name },
+    user: { name }, logout
   } = useAuth();
+
+  const handleLogout = () => {
+    logout({ payload: { logged: false, name: "" } });
+    router.replace("/login");
+  };
   return (
     <nav className="navbar navbar-expand-md navbar-light container-lg py-5 fw-bold">
       <div className="container-fluid">
@@ -55,14 +61,9 @@ export const Navbar = () => {
           </ul>
           <div className="d-md-flex ms-md-5 navbar-nav">
             <span className="nav-item nav-link text-danger">{name}</span>
-            <NavLink
-              activeClassName="active"
-              className="nav-item nav-link"
-              exact
-              to="/login"
-            >
+            <button className="btn nav-item nav-link" onClick={handleLogout}>
               Logout
-            </NavLink>
+            </button>
           </div>
         </div>
       </div>
