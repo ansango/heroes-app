@@ -1,6 +1,6 @@
-const Types =  {
+const types =  {
     login: "[auth] login",
     logout: "[auth] logout"
 }
  
-export default Types
+export default types

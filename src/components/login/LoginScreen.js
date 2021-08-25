@@ -1,5 +1,9 @@
+import { useAuth } from "../../auth/AuthProvider";
+
 export const LoginScreen = ({ history }) => {
+  const { login } = useAuth();
   const handleLogin = () => {
+    login({ payload: { logged: true, name: "Anibal" } });
     history.replace("/");
   };
   return (
