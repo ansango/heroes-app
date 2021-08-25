@@ -8,7 +8,7 @@ export const Navbar = () => {
   } = useAuth();
 
   const handleLogout = () => {
-    logout({ payload: { logged: false, name: "" } });
+    logout({ payload: { logged: false } });
     router.replace("/login");
   };
   return (
