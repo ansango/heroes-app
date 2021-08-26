@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { useAuth } from "../auth/AuthProvider";
 import { LoginScreen } from "../components/login/LoginScreen";
 

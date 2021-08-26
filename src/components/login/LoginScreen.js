@@ -3,8 +3,9 @@ import { useAuth } from "../../auth/AuthProvider";
 export const LoginScreen = ({ history }) => {
   const { login } = useAuth();
   const handleLogin = () => {
+    const lastPath = localStorage.getItem("lastPath") || "/";
     login({ payload: { logged: true, name: "Anibal" } });
-    history.replace("/");
+    history.replace(lastPath);
   };
   return (
     <div className="container">
