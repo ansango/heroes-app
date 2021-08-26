@@ -4,6 +4,7 @@ import { LoginScreen } from "../components/login/LoginScreen";
 
 import { DashboardRoutes } from "./DashboardRoutes";
 import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./PublicRoute";
 
 export const AppRouter = () => {
   const { user } = useAuth();
@@ -11,7 +12,12 @@ export const AppRouter = () => {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/login" component={LoginScreen} />
+          <PublicRoute
+            exact
+            path="/login"
+            component={LoginScreen}
+            isAuth={user.logged}
+          />
 
           <PrivateRoute
             path="/"
