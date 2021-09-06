@@ -1,4 +1,5 @@
 import { useAuth } from "../../auth/AuthProvider";
+import { Container } from "../ui/Container";
 
 export const LoginScreen = ({ history }) => {
   const { login } = useAuth();
@@ -8,13 +9,15 @@ export const LoginScreen = ({ history }) => {
     history.replace(lastPath);
   };
   return (
-    <div className="container">
-      <h1>Login</h1>
-      <hr />
+    <Container>
+      <div className="py-5">
+        <h1>Login</h1>
+        <hr />
 
-      <button className="btn btn-primary" onClick={handleLogin}>
-        Login
-      </button>
-    </div>
+        <button className="btn btn-primary" onClick={handleLogin}>
+          Login
+        </button>
+      </div>
+    </Container>
   );
 };

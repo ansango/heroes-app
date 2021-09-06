@@ -3,13 +3,14 @@ import { DcScreen } from "../components/dc/DcScreen";
 import { HeroScreen } from "../components/heroes/HeroScreen";
 import { MarvelScreen } from "../components/marvel/MarvelScreen";
 import { SearchScreen } from "../components/search/SearchScreen";
+import { Container } from "../components/ui/Container";
 import { Navbar } from "../components/ui/Navbar";
 
 export const DashboardRoutes = () => {
   return (
     <>
       <Navbar />
-      <div className="container my-5">
+      <Container>
         <Switch>
           <Route exact path="/marvel" component={MarvelScreen} />
           <Route exact path="/hero/:heroId" component={HeroScreen} />
@@ -17,7 +18,7 @@ export const DashboardRoutes = () => {
           <Route exact path="/search" component={SearchScreen} />
           <Redirect to="/marvel" />
         </Switch>
-      </div>
+      </Container>
     </>
   );
 };
